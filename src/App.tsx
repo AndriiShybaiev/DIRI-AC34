@@ -7,7 +7,7 @@ import { FaqPage } from "./pages/help/FaqPage";
 import { ReferencePage } from "./pages/help/ReferencePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
-// AC3.4: Rutas + nested routes + not found. [file:2]
+// AC3.4: Rutas + nested routes + not found
 export function App() {
     return (
         <Routes>
