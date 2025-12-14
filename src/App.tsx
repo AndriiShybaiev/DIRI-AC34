@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { HomePage } from "./pages/HomePage";
+import { ItemsPage } from "./pages/ItemsPage";
+import { HelpPage } from "./pages/HelpPage";
+import { FaqPage } from "./pages/help/FaqPage";
+import { ReferencePage } from "./pages/help/ReferencePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
-function App() {
-  const [count, setCount] = useState(0)
+// AC3.4: Rutas + nested routes + not found. [file:2]
+export function App() {
+    return (
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route index element={<HomePage />} />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+                {/* AC3.4-2b: parametro optional */}
+                <Route path="items" element={<ItemsPage />} />
+                <Route path="items/:id" element={<ItemsPage />} />
+
+                {/* AC3.4-4: nested help routes */}
+                <Route path="ayuda" element={<HelpPage />}>
+                    <Route path="faq" element={<FaqPage />} />
+                    <Route path="referencia" element={<ReferencePage />} />
+                </Route>
+
+                {/* AC3.4-3: not found */}
+                <Route path="*" element={<NotFoundPage />} />
+            </Route>
+        </Routes>
+    );
 }
-
-export default App
