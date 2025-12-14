@@ -1,0 +1,27 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+.appShell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.topNav { position: sticky; top: 0; background: #111; padding: 12px; }
+.navLinks { display: flex; gap: 12px; align-items: center; }
+.navLinks a { color: #9ad; text-decoration: none; }
+.navLinks a.active { color: #fff; text-decoration: underline; }
+.helpButton { padding: 6px 10px; }
+
+.mainContent { padding: 16px; flex: 1; }
+
+.itemsGrid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.searchRow { display: flex; gap: 8px; margin: 12px 0; }
+.itemsTable { width: 100%; border-collapse: collapse; }
+.itemsTable th, .itemsTable td { border: 1px solid #ddd; padding: 8px; }
+.itemsTable tr:hover { background: #f5f5f5; cursor: pointer; }
+.rowSelected { background: #e8f0ff; }
+
+.detailsCard { border: 1px solid #ddd; padding: 12px; border-radius: 8px; }
+
+.modalBackdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    display: flex; justify-content: center; align-items: center;
+}
+.modalCard { background: white; border-radius: 10px; width: min(420px, 90vw); overflow: hidden; }
+.modalHeader, .modalFooter { padding: 12px; background: #f3f3f3; }
+.modalBody { padding: 12px; }
